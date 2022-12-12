@@ -16308,6 +16308,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Account/register.cshtml",
+      "TargetPath": "Views\\Account\\register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Home/Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"

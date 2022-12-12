@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Account/register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9yZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
