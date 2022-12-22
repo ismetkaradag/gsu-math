@@ -6,4 +6,5 @@ public class MyDbContext : DbContext
         : base(options)
     {
     }
+    public DbSet<gsu_math.Models.User> User {get;set;}
 }

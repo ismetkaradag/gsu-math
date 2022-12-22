@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "13QD+n44d/h9V0kQBdpQSRqIhiz16xbzZIzOPeuk3MY=",
+  "Hash": "iutTm4H7V3LqQSCvy6AGTW7oL82/CxMpiiHtWz0XpXw=",
   "Source": "gsu-math",
   "BasePath": "_content/gsu-math",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/obj/Debug/net6.0/scopedcss/projectbundle/gsu-math.bundle.scp.css"
     },
     {
+      "Identity": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/wwwroot/.DS_Store",
+      "SourceId": "gsu-math",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/wwwroot/",
+      "BasePath": "_content/gsu-math",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
       "Identity": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/wwwroot/css/site.css",
       "SourceId": "gsu-math",
       "SourceType": "Discovered",
@@ -83,6 +100,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/wwwroot/images/.DS_Store",
+      "SourceId": "gsu-math",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/wwwroot/",
+      "BasePath": "_content/gsu-math",
+      "RelativePath": "images/.DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/.DS_Store"
+    },
+    {
+      "Identity": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/wwwroot/images/logo.PNG",
+      "SourceId": "gsu-math",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/wwwroot/",
+      "BasePath": "_content/gsu-math",
+      "RelativePath": "images/logo.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/logo.PNG"
     },
     {
       "Identity": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/wwwroot/js/site.js",

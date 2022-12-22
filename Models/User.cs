@@ -9,19 +9,29 @@ namespace gsu_math.Models
     public class User
     {
         public int UserId { get; set; }
-        [Required]
-        public string username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Bu alan zorunlu.")]
+        [Display(Name = "Kullanıcı Adı")]
+        public string Username { get; set; }
+        [Required(ErrorMessage = "Bu alan zorunlu.")]
+        [Display(Name = "İsim Soyisim")]
         public string AdSoyad { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Bu alan zorunlu.")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Şifre")]
         public string Password { get; set; }
+        [Required(ErrorMessage = "Bu alan zorunlu.")]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Şifre Tekrar")]
+        public string ConfirmPwd { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime AtCreated { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Bu alan zorunlu.")]
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
+        public string Status { get; set; }
+        public string Yetki { get; set; }
     }
 }

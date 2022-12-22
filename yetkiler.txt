@@ -1,0 +1,5 @@
+a - Admin ekleme
+b - Admin silme
+c - Kullanıcıları görme
+d - Kullanıcı silme
+e - Yetki verebilme

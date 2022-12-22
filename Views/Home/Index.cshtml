@@ -4,4 +4,15 @@
 
 <div class="text-center">
     <h1 class="display-4">Bienvenue à la Maison</h1>
+    <h3>Üyeler</h3>
+    @foreach (var item in ViewBag.users)
+    {
+        <p>@item.Username</p>
+        <p>@item.Email</p>
+        <p>@item.AdSoyad</p>
+        <p>@item.Password</p>
+        <p>@item.AtCreated</p>
+        <p>@item.Status</p>
+        <p>@item.Yetki @@ yetkiler </p>
+    }
 </div>
