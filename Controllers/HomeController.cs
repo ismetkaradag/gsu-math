@@ -14,6 +14,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+
         ViewBag.users = _context.User.ToList();
         return View();
     }

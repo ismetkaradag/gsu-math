@@ -7,4 +7,5 @@ public class MyDbContext : DbContext
     {
     }
     public DbSet<gsu_math.Models.User> User {get;set;}
+    public DbSet<gsu_math.Models.Yetki> Yetki {get;set;}
 }

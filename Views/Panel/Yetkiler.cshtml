@@ -1,0 +1,24 @@
+@model List<gsu_math.Models.Yetki>
+<div class="row">
+    <a asp-controller="Panel" asp-action="YetkiCreate">Yetki Yarat</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Yetki Harf</th>
+                <th>Açıklama</th>
+                <th>@@</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.YetkiHarf</td>
+                    <td>@item.Aciklama</td>
+                    <td>@item.YetkiId silme link</td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>

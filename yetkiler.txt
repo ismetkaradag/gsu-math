@@ -1,5 +1,10 @@
-a - Admin ekleme
-b - Admin silme
+
+a - Admin ekleme - silme
+b - forum açabilme
 c - Kullanıcıları görme
 d - Kullanıcı silme
-e - Yetki verebilme
+e - dergi yayınlama
+f - blog paylaşımı
+...
+..
+.
