@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7PbgMWLY6s5XdXx945RqyO1e6HgWZ8FXWW6P0Sh8vQjgjtZp8dS70u8U9E6lyULCc7mjl3TrHxJDBhT4S2K6PA==",
+  "dgSpecHash": "ov4NIG+h0WGpGdr6yQOVqHA6kT4Q6e0OIwpQnJggTeMCO3Ljy69ZXZAY6TSDGaPYcxnGl72LMO2MPmlNA2RvOw==",
   "success": true,
-  "projectFilePath": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/gsu-math.csproj",
+  "projectFilePath": "/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/gsu-math.csproj",
   "expectedPackageFiles": [
     "/Users/ismetkaradag/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/Users/ismetkaradag/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",
@@ -44,6 +44,7 @@
     "/Users/ismetkaradag/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
     "/Users/ismetkaradag/.nuget/packages/microsoft.win32.systemevents/5.0.0/microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "/Users/ismetkaradag/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/Users/ismetkaradag/.nuget/packages/slugify.core/3.0.0/slugify.core.3.0.0.nupkg.sha512",
     "/Users/ismetkaradag/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.2/sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512",
     "/Users/ismetkaradag/.nuget/packages/sqlitepclraw.core/2.1.2/sqlitepclraw.core.2.1.2.nupkg.sha512",
     "/Users/ismetkaradag/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.2/sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",

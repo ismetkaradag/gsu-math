@@ -32,6 +32,6 @@ namespace gsu_math.Models
         [Display(Name = "E-mail")]
         public string Email { get; set; }
         public string Status { get; set; }
-        public string Yetki { get; set; }
+        public bool Is_admin { get; set; }
     }
 }

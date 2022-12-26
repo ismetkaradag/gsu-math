@@ -571,6 +571,19 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
+      "Slugify.Core/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4",
+          "system.Text.Encoding.CodePages": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Slugify.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Slugify.Core.dll": {}
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
         "type": "package",
         "dependencies": {
@@ -1027,7 +1040,7 @@
           "Microsoft.NETCore.Platforms": "5.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/_._": {}
+          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
@@ -2103,6 +2116,18 @@
         "lib/netstandard2.0/Mono.TextTemplating.dll",
         "mono.texttemplating.2.2.1.nupkg.sha512",
         "mono.texttemplating.nuspec"
+      ]
+    },
+    "Slugify.Core/3.0.0": {
+      "sha512": "lJiN2OUUu/zOErZzuv+rUnR2S7qvXthhuF+xoqiymoTx+YnqtOjzPwp+c9i7zVrKHFqCOSV1PSJeUEE4hiofBw==",
+      "type": "package",
+      "path": "slugify.core/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Slugify.Core.dll",
+        "slugify.core.3.0.0.nupkg.sha512",
+        "slugify.core.nuspec"
       ]
     },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
@@ -3571,7 +3596,8 @@
     "net6.0": [
       "Microsoft.EntityFrameworkCore.Design >= 7.0.0",
       "Microsoft.EntityFrameworkCore.SQLite >= 7.0.0",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.0"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.0",
+      "Slugify.Core >= 3.0.0"
     ]
   },
   "packageFolders": {
@@ -3580,11 +3606,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/gsu-math.csproj",
+      "projectUniqueName": "/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/gsu-math.csproj",
       "projectName": "gsu-math",
-      "projectPath": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/gsu-math.csproj",
+      "projectPath": "/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/gsu-math.csproj",
       "packagesPath": "/Users/ismetkaradag/.nuget/packages/",
-      "outputPath": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/obj/",
+      "outputPath": "/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/ismetkaradag/.nuget/NuGet/NuGet.Config"
@@ -3624,6 +3650,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[7.0.0, )"
+          },
+          "Slugify.Core": {
+            "target": "Package",
+            "version": "[3.0.0, )"
           }
         },
         "imports": [

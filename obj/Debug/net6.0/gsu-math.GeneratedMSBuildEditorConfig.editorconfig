@@ -8,65 +8,57 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = gsu_math
 build_property.RootNamespace = gsu_math
-build_property.ProjectDir = /Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/
+build_property.ProjectDir = /Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math
+build_property.MSBuildProjectDirectory = /Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Account/login.cshtml]
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Account/login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9sb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Account/register.cshtml]
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Account/register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9yZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Forum/detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRm9ydW0vZGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Home/Privacy.cshtml]
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Forum/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRm9ydW0vaW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Home/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9pbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Panel/Index.cshtml]
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Panel/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFuZWwvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Panel/YetkiCreate.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFuZWwvWWV0a2lDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Panel/YetkiEkleSil.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFuZWwvWWV0a2lFa2xlU2lsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Panel/Yetkiler.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFuZWwvWWV0a2lsZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Panel/yetkiver.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFuZWwveWV0a2l2ZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Shared/Error.cshtml]
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Shared/_ValidationScriptsPartial.cshtml]
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/_ViewImports.cshtml]
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/_ViewStart.cshtml]
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/Views/Shared/_Layout.cshtml]
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-tgp007wpul

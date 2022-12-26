@@ -5,7 +5,7 @@
 <div class="text-center">
     <h1 class="display-4">Bienvenue à la Maison</h1>
     <h3>Üyeler</h3>
-    <img src="~/images/harry-potter-lord-voldemort.jpeg" alt="" class="w-100">
+
 
     @foreach (var item in ViewBag.users)
     {
@@ -15,6 +15,5 @@
         <p>@item.Password</p>
         <p>@item.AtCreated</p>
         <p>@item.Status</p>
-        <p>@item.Yetki @@ yetkiler   </p>
     }
 </div>

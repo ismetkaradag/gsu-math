@@ -1,0 +1,39 @@
+@model gsu_math.ViewModels.ForumCreateViewModel
+
+<style>
+    form div{
+        margin-top: 4%;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div>
+            <h3>Create a forum</h3>
+        </div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Baslik" class="control-label"></label>
+                <input asp-for="Baslik" onkeyup="derive();" id="latextext" class="form-control">
+                
+                <span asp-validation-for="Baslik" class="text-danger"></span>
+            </div>
+            <input type="submit" class="btn btn-primary mt-2">
+
+        </form>
+    </div>
+</div>
+<script src="latex.js"></script>
+<script>
+    var text = "Hi, this is a line of text."
+
+    var generator = new latexjs.HtmlGenerator({ hyphenate: false })
+
+    generator = latexjs.parse(text, { generator: generator })
+
+
+    document.head.appendChild(generator.stylesAndScripts(""))
+    document.body.appendChild(generator.domFragment())
+    
+  </script>

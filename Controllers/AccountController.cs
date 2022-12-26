@@ -16,6 +16,10 @@ namespace gsu_math.Controllers
         }
         public IActionResult Register()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("index","home");
+            }
             return View();
         }
         [HttpPost]
@@ -77,8 +81,8 @@ namespace gsu_math.Controllers
                     var claims = new List<Claim>
                     {
                         new Claim("username",user.Username),
-                        new Claim(ClaimTypes.Name,user.Username),
-                        new Claim(ClaimTypes.Role, user.Yetki!=null?user.Yetki:"0")
+                        new Claim(ClaimTypes.Name, user.Username),
+                        new Claim(ClaimTypes.Role, user.Is_admin == true?"admin":"user")
                     };
                     var claimsIdentity = new ClaimsIdentity(
                         claims,CookieAuthenticationDefaults.AuthenticationScheme);

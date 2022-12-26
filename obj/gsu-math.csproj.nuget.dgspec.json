@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/gsu-math.csproj": {}
+    "/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/gsu-math.csproj": {}
   },
   "projects": {
-    "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/gsu-math.csproj": {
+    "/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/gsu-math.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/gsu-math.csproj",
+        "projectUniqueName": "/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/gsu-math.csproj",
         "projectName": "gsu-math",
-        "projectPath": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/gsu-math.csproj",
+        "projectPath": "/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/gsu-math.csproj",
         "packagesPath": "/Users/ismetkaradag/.nuget/packages/",
-        "outputPath": "/Users/ismetkaradag/Desktop/My Projects .Net/gsu-kulup/gsu-math/obj/",
+        "outputPath": "/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ismetkaradag/.nuget/NuGet/NuGet.Config"
@@ -51,6 +51,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Slugify.Core": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             }
           },
           "imports": [
