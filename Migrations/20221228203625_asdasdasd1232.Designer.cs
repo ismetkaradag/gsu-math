@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace gsumath.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20221226132306_slug")]
-    partial class slug
+    [Migration("20221228203625_asdasdasd1232")]
+    partial class asdasdasd1232
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,10 +69,17 @@ namespace gsumath.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Baslik")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("begenisayisi")
                         .HasColumnType("INTEGER");
+
+                    b.Property<int>("cevapsayisi")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("creater")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("slug")
                         .HasColumnType("TEXT");
@@ -88,8 +95,8 @@ namespace gsumath.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("BegeniSayisi")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("BegeniSayisi")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("ForumBaslikId")
                         .HasColumnType("INTEGER");
@@ -97,8 +104,14 @@ namespace gsumath.Migrations
                     b.Property<string>("Metin")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
+                    b.Property<DateTime>("at_created")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("faydalibulanlar")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("username")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ForumCevapId");
 

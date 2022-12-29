@@ -1,39 +1,120 @@
-@model gsu_math.ViewModels.ForumCreateViewModel
+@model gsu_math.Models.ForumBaslik
 
 <style>
-    form div{
+    form div {
         margin-top: 4%;
     }
 </style>
-
+<script type="module">
+    import { LaTeXJSComponent } from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.mjs"
+    customElements.define("latex-js", LaTeXJSComponent)
+</script>
+<style>
+    latex-js {
+        display: inline-block;
+        width: 100%;
+    }
+</style>
 <div class="row">
-    <div class="col-md-4 offset-md-4">
+    <div class="col-md-6 offset-md-3">
         <div>
             <h3>Create a forum</h3>
         </div>
-        <form asp-action="Create">
+        <form asp-action="Create" id="my-form">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Baslik" class="control-label"></label>
-                <input asp-for="Baslik" onkeyup="derive();" id="latextext" class="form-control">
-                
+                <label asp-for="Baslik" class="control-label">Konu:</label>
+                @Html.TextAreaFor(m => m.Baslik, new{ @class = "form-control",@id="text"})
+
                 <span asp-validation-for="Baslik" class="text-danger"></span>
             </div>
-            <input type="submit" class="btn btn-primary mt-2">
-
+            <button type="button" id="kontrol" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="latexkodunukontrolet();">
+                Check the text
+            </button>
         </form>
+
+
+    </div>
+    
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Kontrol edin</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="cikti"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close and Edit</button>
+                    <button type="button" class="btn btn-primary" type="submit" form="my-form" onclick="document.getElementById('my-form').submit()">Save</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<script src="latex.js"></script>
+<div class="row">
+    @foreach (var item in ViewBag.Basliklar)
+    {
+        <div class="col-md-6 offset-md-3 mt-2">
+            <div class="card">
+                <h3 class="card-title baslik"><latex-js
+                    baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@item.Baslik</latex-js></h3>
+                <div class="card-body">
+                    <p class="card-text text-muted">@item.AtCreated</p>
+                    <p class="card-text text-muted">@item.creater</p>
+                    <p class="card-text text-muted">@item.cevapsayisi</p>
+                    <a asp-controller="forum" asp-action="detail" asp-route-id="@item.slug" class="btn btn-secondary">detail</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<script src="https://cdn.jsdelivr.net/npm/latex.js/dist/latex.js"></script>
 <script>
-    var text = "Hi, this is a line of text."
+    function latexkodunukontrolet(){
+        var text = document.getElementById("text").value;
+        document.getElementById("cikti").innerHTML = '<latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">' + text + '</latex-js>'
+    };
+</script>
+<style>
+    .loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-    var generator = new latexjs.HtmlGenerator({ hyphenate: false })
+.circle {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  animation: spin 1s linear infinite;
+}
 
-    generator = latexjs.parse(text, { generator: generator })
+.circle:nth-child(2) {
+  animation-delay: 0.2s;
+}
 
+.circle:nth-child(3) {
+  animation-delay: 0.4s;
+}
 
-    document.head.appendChild(generator.stylesAndScripts(""))
-    document.body.appendChild(generator.domFragment())
-    
-  </script>
+@@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+</style>
+<div class="loader">
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+</div>

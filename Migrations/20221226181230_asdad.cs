@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace gsumath.Migrations
 {
     /// <inheritdoc />
-    public partial class newmodels : Migration
+    public partial class asdad : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -47,9 +47,10 @@ namespace gsumath.Migrations
                 {
                     ForumBaslikId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Baslik = table.Column<string>(type: "TEXT", nullable: true),
-                    AtCreated = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Baslik = table.Column<string>(type: "TEXT", nullable: false),
+                    AtCreated = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    slug = table.Column<string>(type: "TEXT", nullable: true),
+                    creater = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -71,6 +72,26 @@ namespace gsumath.Migrations
                 {
                     table.PrimaryKey("PK_ForumCevap", x => x.ForumCevapId);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "User",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Username = table.Column<string>(type: "TEXT", nullable: false),
+                    AdSoyad = table.Column<string>(type: "TEXT", nullable: false),
+                    Password = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    ConfirmPwd = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    AtCreated = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    Status = table.Column<string>(type: "TEXT", nullable: true),
+                    Isadmin = table.Column<bool>(name: "Is_admin", type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_User", x => x.UserId);
+                });
         }
 
         /// <inheritdoc />
@@ -87,6 +108,9 @@ namespace gsumath.Migrations
 
             migrationBuilder.DropTable(
                 name: "ForumCevap");
+
+            migrationBuilder.DropTable(
+                name: "User");
         }
     }
 }

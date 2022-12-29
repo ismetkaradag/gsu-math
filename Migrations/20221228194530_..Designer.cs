@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace gsumath.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221228194530_.")]
+    partial class _
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
@@ -72,9 +75,6 @@ namespace gsumath.Migrations
                     b.Property<int>("begenisayisi")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("cevapsayisi")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("creater")
                         .HasColumnType("TEXT");
 
@@ -102,9 +102,6 @@ namespace gsumath.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("at_created")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("faydalibulanlar")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("username")

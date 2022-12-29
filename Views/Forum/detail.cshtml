@@ -1,3 +1,76 @@
-@model gsu_math.Models.ForumBaslik
+@model gsu_math.ViewModels.ForumDetailViewModel
 
-@Model.Baslik
+<script type="module">
+    import { LaTeXJSComponent } from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.mjs"
+    customElements.define("latex-js", LaTeXJSComponent)
+</script>
+<style>
+    latex-js {
+        display: inline-block;
+        width: 100%;
+    }
+</style>
+
+<latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@Model.Baslik.Baslik</latex-js>
+
+
+@foreach (var item in @Model.Cevaplar)
+{
+    @if (@item.faydalibulanlar.Contains(@User.Identity.Name))
+    {
+        <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@item?.Metin</latex-js>
+        <p>@item.username</p>
+        <button class="btn btn-primary" id="@item.ForumCevapId" onclick="ffaayyddaa(this.id);">faydali</button>  
+    }else
+    {
+        <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@item?.Metin</latex-js>
+        <p>@item.username</p>
+        <button class="btn" id="@item.ForumCevapId" onclick="ffaayyddaa(this.id);">faydali</button>
+    }
+    
+}
+<form asp-action="CevapCreate" id="my-form" asp-route-id="@Model.Baslik.slug">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label for="Metin" class="control-label">Cevap:</label>
+        <Textarea class="form-control" rows="4" id="text" name="Metin"></Textarea>
+    </div>
+    <button type="button" id="kontrol" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="latexkodunukontrolet2();">
+        Check the text
+    </button>
+</form>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Kontrol edin</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="cikti"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close and Edit</button>
+                <button type="button" class="btn btn-primary" type="submit" onclick="document.getElementById('my-form').submit()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/latex.js/dist/latex.js"></script>
+<script>
+    function latexkodunukontrolet2(){
+        var text = document.getElementById("text").value;
+        document.getElementById("cikti").innerHTML = '<latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">' + text + '</latex-js>'
+    };
+</script>
+<script>
+    function ffaayyddaa(id){
+        var asd = "/forum/faydali/" + id
+        $.post(asd,function(data,status){
+            if(data == "faydali"){
+                document.getElementById(id).classList.add("btn-primary");
+            }else{
+                document.getElementById(id).classList.remove("btn-primary");
+            }
+        })
+    }
+</script>
