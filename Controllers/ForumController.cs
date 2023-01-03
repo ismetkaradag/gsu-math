@@ -116,5 +116,20 @@ namespace gsu_math.Controllers
             }
             return "error";
         }
+        public IActionResult Delete(int id){
+            return View(_context.ForumBaslik.FirstOrDefault(p => p.ForumBaslikId == id));
+        }
+        [HttpPost]
+        public IActionResult DeleteConfirme(int id){
+
+            _context.Remove(_context.ForumBaslik.FirstOrDefault(p => p.ForumBaslikId == id));
+            foreach (var item in _context.ForumCevap.Where(p => p.ForumBaslikId == id).ToList())
+            {
+                _context.Remove(item);
+            }
+            
+            _context.SaveChanges();
+            return RedirectToAction("index","forum");
+        }
     }
 }

@@ -67,6 +67,7 @@
                     <p class="card-text text-muted">@item.creater</p>
                     <p class="card-text text-muted">@item.cevapsayisi</p>
                     <a asp-controller="forum" asp-action="detail" asp-route-id="@item.slug" class="btn btn-secondary">detail</a>
+                    <a asp-controller="forum" asp-action="delete" asp-route-id="@item.ForumBaslikId" class="btn btn-secondary">delete</a>
                 </div>
             </div>
         </div>
