@@ -1,0 +1,20 @@
+@model List<gsu_math.Models.Etkinlik>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.Baslik</td>
+                    <td>@item.startDate</td>
+                    <td>@item.endDate</td>
+                    <td><a asp-controller="Etkinlik" asp-action="delete" asp-route-id="@item.EtkinlikId">Sil</a></td>
+                </tr>    
+                }
+                
+            </tbody>
+        </table>
+    </div>
+</div>

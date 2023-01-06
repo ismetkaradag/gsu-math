@@ -22,7 +22,7 @@ namespace gsu_math.Controllers
             
             return View();
         }
-    
+        
 
     }
 }

@@ -1,10 +1,5 @@
-@model gsu_math.Models.ForumBaslik
+@model List<gsu_math.Models.ForumBaslik>
 
-<style>
-    form div {
-        margin-top: 4%;
-    }
-</style>
 <script type="module">
     import { LaTeXJSComponent } from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.mjs"
     customElements.define("latex-js", LaTeXJSComponent)
@@ -16,28 +11,16 @@
     }
 </style>
 <div class="row">
-    <div class="col-md-6 offset-md-3">
-        <div>
-            <h3>Create a forum</h3>
-        </div>
+    <div class="col-md-8 offset-md-2">
         <form asp-action="Create" id="my-form">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Baslik" class="control-label">Konu:</label>
-                @Html.TextAreaFor(m => m.Baslik, new{ @class = "form-control",@id="text"})
-
-                <span asp-validation-for="Baslik" class="text-danger"></span>
+                <Textarea class="form-control" id="text" name="Baslik" placeholder="Konu oluşturun" rows="3"></Textarea>
             </div>
-            <button type="button" id="kontrol" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="latexkodunukontrolet();">
-                Check the text
+            <button type="button" id="kontrol" class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="latexkodunukontrolet();">
+                Kontrol et
             </button>
         </form>
-
-
     </div>
-    
-
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -48,29 +31,33 @@
                 </div>
                 <div class="modal-body" id="cikti"></div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close and Edit</button>
-                    <button type="button" class="btn btn-primary" type="submit" form="my-form" onclick="document.getElementById('my-form').submit()">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" type="submit" form="my-form" onclick="document.getElementById('my-form').submit()">Konu Başlat</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div class="row">
-    @foreach (var item in ViewBag.Basliklar)
+    @foreach (var item in Model)
     {
-        <div class="col-md-6 offset-md-3 mt-2">
-            <div class="card">
-                <h3 class="card-title baslik"><latex-js
-                    baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@item.Baslik</latex-js></h3>
-                <div class="card-body">
-                    <p class="card-text text-muted">@item.AtCreated</p>
-                    <p class="card-text text-muted">@item.creater</p>
-                    <p class="card-text text-muted">@item.cevapsayisi</p>
-                    <a asp-controller="forum" asp-action="detail" asp-route-id="@item.slug" class="btn btn-secondary">detail</a>
-                    <a asp-controller="forum" asp-action="delete" asp-route-id="@item.ForumBaslikId" class="btn btn-secondary">delete</a>
+        <div class="col-md-8 offset-md-2 mt-2">
+            
+                <div class="card">
+                    <a asp-controller="forum" asp-action="detail" class="forum-card" asp-route-id="@item.slug">
+                    <h3 class="card-title baslik"><latex-js
+                        baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@item.Baslik</latex-js>
+                    </h3>
+                    </a>
+                    <div class="card-body forum-body">
+                        <span>Cevap sayısı: @item.cevapsayisi</span>|&nbsp;&nbsp;
+                        <span><i class="bi bi-person-circle"></i>@item.creater</span>|&nbsp;&nbsp;
+                        
+                        <span><i class="bi bi-calendar"></i>@item.AtCreated</span>
+                    </div>
                 </div>
-            </div>
         </div>
+
     }
 </div>
 <script src="https://cdn.jsdelivr.net/npm/latex.js/dist/latex.js"></script>
@@ -80,43 +67,3 @@
         document.getElementById("cikti").innerHTML = '<latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">' + text + '</latex-js>'
     };
 </script>
-<style>
-    .loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.circle {
-  width: 50px;
-  height: 50px;
-  border: 2px solid #333;
-  border-radius: 50%;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  animation: spin 1s linear infinite;
-}
-
-.circle:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.circle:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-</style>
-<div class="loader">
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>  
-</div>
-  

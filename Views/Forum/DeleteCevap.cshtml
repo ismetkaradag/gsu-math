@@ -1,0 +1,14 @@
+@model gsu_math.Models.ForumCevap
+
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <form asp-action="DeleteCevapConfirme" asp-route-id="@Model.ForumCevapId">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <p>@Model.Metin başlıklı, @Model.username tarafından yaratılan cevabı silmek istediğinize emin misiniz?</p>
+            </div>
+            <input type="submit" value="Sil">
+        </form>
+    </div>
+</div>

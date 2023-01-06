@@ -21,8 +21,7 @@ namespace gsu_math.Controllers
         }
         public IActionResult Index()
         {
-            ViewBag.Basliklar = _context.ForumBaslik.ToList();
-            return View();
+            return View(_context.ForumBaslik.ToList());
         }
         
         [HttpPost]
@@ -69,6 +68,7 @@ namespace gsu_math.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public IActionResult CevapCreate(IFormCollection collection,string id)
         {
             var a = collection["Metin"];
@@ -93,6 +93,7 @@ namespace gsu_math.Controllers
             return RedirectToAction("Detail","Forum",new {id});
         }
         [HttpPost]
+        
         public string faydali(int id){
             if (User.Identity.IsAuthenticated)
             {
@@ -108,7 +109,6 @@ namespace gsu_math.Controllers
                     var name = User.Identity.Name;
                     var namev = name+",";
                     var l = a.Remove(a.IndexOf(namev),name.Length+1);
-                    System.Console.WriteLine(l);
                     s.faydalibulanlar = l;
                     _context.SaveChanges();
                     return "degil";
@@ -116,20 +116,68 @@ namespace gsu_math.Controllers
             }
             return "error";
         }
+        [Authorize]
         public IActionResult Delete(int id){
-            return View(_context.ForumBaslik.FirstOrDefault(p => p.ForumBaslikId == id));
-        }
-        [HttpPost]
-        public IActionResult DeleteConfirme(int id){
-
-            _context.Remove(_context.ForumBaslik.FirstOrDefault(p => p.ForumBaslikId == id));
-            foreach (var item in _context.ForumCevap.Where(p => p.ForumBaslikId == id).ToList())
+            var silinecek = _context.ForumBaslik.FirstOrDefault(p => p.ForumBaslikId == id);
+            if (User.Identity.Name == silinecek.creater)
             {
-                _context.Remove(item);
+                return View(silinecek);
+            }else
+            {
+                return RedirectToAction("index","home");
             }
             
-            _context.SaveChanges();
-            return RedirectToAction("index","forum");
+        }
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirme(int id)
+        {
+            var silinecek = _context.ForumBaslik.FirstOrDefault(p => p.ForumBaslikId == id);
+            if (silinecek.cevapsayisi > 2)
+            {
+                return RedirectToAction("index","home");
+            }else{
+                _context.Remove(silinecek);
+                foreach (var item in _context.ForumCevap.Where(p => p.ForumBaslikId == id).ToList())
+                {
+                    _context.Remove(item);
+                }
+                _context.SaveChanges();
+            }
+            return RedirectToAction("index","forum"); 
+        }
+        [Authorize]
+        public IActionResult DeleteCevap(int id)
+        {
+            var us = _context.ForumCevap.FirstOrDefault(p => p.ForumCevapId == id);
+            if (User.Identity.Name == us.username)
+            {
+                return View(us);
+            }else
+            {
+                return RedirectToAction("index","home");
+            }
+            
+        }
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteCevapConfirme(int id)
+        {
+            var silinecek = _context.ForumCevap.FirstOrDefault(p => p.ForumCevapId == id);
+            if (User.Identity.Name == silinecek.username)
+            {
+                var forum = _context.ForumBaslik.FirstOrDefault(p => p.ForumBaslikId == silinecek.ForumBaslikId);
+                forum.cevapsayisi -= 1;
+                _context.Remove(silinecek);
+                _context.SaveChanges();
+                return RedirectToAction("detail","forum",new {id = forum.slug});
+            }else
+            {
+                return RedirectToAction("index","home");
+            }
+            
         }
     }
 }

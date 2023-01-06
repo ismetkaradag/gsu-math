@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace gsu_math.Models
 {
@@ -32,6 +33,11 @@ namespace gsu_math.Models
         [Display(Name = "E-mail")]
         public string Email { get; set; }
         public string Status { get; set; }
+        [DefaultValue(false)]
         public bool Is_admin { get; set; }
+        [DefaultValue(false)]
+        public bool is_validate { get; set; }
+        [DefaultValue(false)]
+        public bool is_mail_validated { get; set; }
     }
 }

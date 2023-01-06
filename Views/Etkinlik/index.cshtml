@@ -1,0 +1,20 @@
+@model List<gsu_math.Models.Etkinlik>
+<a asp-controller="Etkinlik" asp-action="Create">Yeni ekle</a>
+<a asp-controller="Etkinlik" asp-action="Liste">Liste</a>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="snap">
+@foreach (var item in @Model)
+{
+
+    <div class="snap-item">
+        <img src="~/photos/@item.Foto" class="img-fluid" alt="@item.Baslik-foto">
+        <div class="snap-title"><p>@item.Baslik</p></div>
+    </div>
+
+}
+</div>
+
+    </div>
+</div>
+

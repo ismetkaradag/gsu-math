@@ -10,35 +10,70 @@
         width: 100%;
     }
 </style>
-
-<latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@Model.Baslik.Baslik</latex-js>
-
-
-@foreach (var item in @Model.Cevaplar)
-{
-    @if (@item.faydalibulanlar.Contains(@User.Identity.Name))
-    {
-        <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@item?.Metin</latex-js>
-        <p>@item.username</p>
-        <button class="btn btn-primary" id="@item.ForumCevapId" onclick="ffaayyddaa(this.id);">faydali</button>  
-    }else
-    {
-        <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@item?.Metin</latex-js>
-        <p>@item.username</p>
-        <button class="btn" id="@item.ForumCevapId" onclick="ffaayyddaa(this.id);">faydali</button>
-    }
-    
-}
-<form asp-action="CevapCreate" id="my-form" asp-route-id="@Model.Baslik.slug">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-group">
-        <label for="Metin" class="control-label">Cevap:</label>
-        <Textarea class="form-control" rows="4" id="text" name="Metin"></Textarea>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h3 class="card-title baslik"><latex-js
+            baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@Model.Baslik.Baslik</latex-js>
+        </h3>
+        <div class="card-body forum-body">
+                        <span>Cevap sayısı: @Model.Baslik.cevapsayisi</span>|&nbsp;&nbsp;
+                        <span><i class="bi bi-person-circle"></i>@Model.Baslik.creater</span>|&nbsp;&nbsp;
+                        
+                        <span><i class="bi bi-calendar"></i>@Model.Baslik.AtCreated</span>
+                    </div>
+        <hr style="height: 4px;">
     </div>
-    <button type="button" id="kontrol" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="latexkodunukontrolet2();">
-        Check the text
-    </button>
-</form>
+    <div class="col-md-8 offset-md-2">
+        <div class="row">
+            @foreach (var item in @Model.Cevaplar)
+            {
+                <latex-js class="mt-2" baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@item?.Metin</latex-js>
+                <div class="col-md-12 mt-4">
+                    
+                    <span><i class="bi bi-person m-1"></i>@item.username</span>
+                @if (@item.faydalibulanlar.Contains(@User.Identity.Name==null?"randomifade123333":User.Identity.Name))
+                {
+                    
+                    <button class="btn bi bi-hand-thumbs-up-fill" id="@item.ForumCevapId" onclick="ffaayyddaa(this.id);"></button>
+                    
+                }else
+                {
+                    <button class="btn bi bi-hand-thumbs-up" id="@item.ForumCevapId" onclick="ffaayyddaa(this.id);"></button>
+                    
+                }
+                @if (User.Identity.Name == @item.username)
+                {
+                    <a class="btn" asp-controller="Forum" asp-action="deletecevap" asp-route-id=@item.ForumCevapId><i class="bi bi-trash"></i></a>    
+                }
+                <div class=" btn dropdown">
+                    <button class="btn bi bi-share" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        
+                    </button>
+                    <ul class="dropdown-menu ">
+                        <li><a class="dropdown-item" href="https://twitter.com/intent/tweet?text=Hello%20world"><i class="bi bi-twitter"></i></a></li>
+                        <li><button class="dropdown-item" onclick="navigator.clipboard.writeText($(this).attr('href'))" href="https://gsumath.com/forum/detail/@Model.Baslik.slug#@item.ForumCevapId"><i class="bi bi-files"></i></button></li>
+                    </ul>
+                </div>
+
+                <hr>
+                </div>
+            }
+        </div>
+        <form asp-action="CevapCreate" class="mt-5" id="my-form" asp-route-id="@Model.Baslik.slug">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <Textarea class="form-control" placeholder="Cevap yazın" rows="4" id="text" name="Metin"></Textarea>
+            </div>
+            <button type="button" id="kontrol" class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="latexkodunukontrolet2();">
+                Check the text
+            </button>
+        </form>
+    </div>
+</div>
+
+
+
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -67,9 +102,11 @@
         var asd = "/forum/faydali/" + id
         $.post(asd,function(data,status){
             if(data == "faydali"){
-                document.getElementById(id).classList.add("btn-primary");
+                document.getElementById(id).classList.add("bi-hand-thumbs-up-fill");
+                document.getElementById(id).classList.remove("bi-hand-thumbs-up");
             }else{
-                document.getElementById(id).classList.remove("btn-primary");
+                document.getElementById(id).classList.remove("bi-hand-thumbs-up-fill");
+                document.getElementById(id).classList.add("bi-hand-thumbs-up");
             }
         })
     }

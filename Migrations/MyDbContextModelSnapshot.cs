@@ -56,6 +56,35 @@ namespace gsumath.Migrations
                     b.ToTable("Duyuru");
                 });
 
+            modelBuilder.Entity("gsu_math.Models.Etkinlik", b =>
+                {
+                    b.Property<int>("EtkinlikId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Baslik")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Foto")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Metin")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("atCreated")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("endDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("startDate")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("EtkinlikId");
+
+                    b.ToTable("Etkinlik");
+                });
+
             modelBuilder.Entity("gsu_math.Models.ForumBaslik", b =>
                 {
                     b.Property<int>("ForumBaslikId")
