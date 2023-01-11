@@ -1,5 +1,7 @@
 @model List<gsu_math.Models.ForumBaslik>
-
+@{
+    Layout = "_Layout2";
+}
 <script type="module">
     import { LaTeXJSComponent } from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.mjs"
     customElements.define("latex-js", LaTeXJSComponent)
@@ -8,62 +10,75 @@
     latex-js {
         display: inline-block;
         width: 100%;
+        --size:100% !important;
+        
     }
 </style>
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <form asp-action="Create" id="my-form">
-            <div class="form-group">
-                <Textarea class="form-control" id="text" name="Baslik" placeholder="Konu oluşturun" rows="3"></Textarea>
-            </div>
-            <button type="button" id="kontrol" class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="latexkodunukontrolet();">
-                Kontrol et
-            </button>
-        </form>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Kontrol edin</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="cikti"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-                    <button type="button" class="btn btn-primary" type="submit" form="my-form" onclick="document.getElementById('my-form').submit()">Konu Başlat</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-8 offset-md-2 mt-2">
-            
-                <div class="card">
-                    <a asp-controller="forum" asp-action="detail" class="forum-card" asp-route-id="@item.slug">
-                    <h3 class="card-title baslik"><latex-js
-                        baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@item.Baslik</latex-js>
-                    </h3>
-                    </a>
-                    <div class="card-body forum-body">
-                        <span>Cevap sayısı: @item.cevapsayisi</span>|&nbsp;&nbsp;
-                        <span><i class="bi bi-person-circle"></i>@item.creater</span>|&nbsp;&nbsp;
-                        
-                        <span><i class="bi bi-calendar"></i>@item.AtCreated</span>
+<section class="section" style="margin-top: 90px !important;padding:0px !important;" id="contact">
+        <div class="container text-center">
+            <!-- contact form -->
+            <form  asp-action="Create" id="my-form" class="contact-form col-md-10 col-lg-8 m-auto">
+                <div class="form-row">
+                    <div class="form-group col-sm-12">
+                        <Textarea class="form-control" id="text" name="Baslik" placeholder="Konu oluşturun" rows="3"></Textarea>
+                    </div>
+                    <div class="form-group col-sm-12 mt-3">
+                        <button type="button" id="kontrol" class="btn btn-secondary mt-2"  onclick="latexkodunukontrolet();">
+                            Kontrol et
+                        </button>
                     </div>
                 </div>
-        </div>
+            </form><!-- end of contact form -->
+            <div hidden id="test">
+                <div class="blog-card">
+                    <div class="blog-card-body " width = "100%">
+                        <div class="w-100 text-center" id="cikti"></div> 
 
-    }
-</div>
+                        <p class="blog-card-caption">
+                            <a href="#"><i class="ti-comment"></i> 0</a>
+                            <a><i class="bi bi-person-circle"></i>@User.Identity.Name</a>
+                        </p>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" type="submit" form="my-form" onclick="document.getElementById('my-form').submit()">Konu Başlat</button>
+            </div>
+        </div><!-- end of container -->
+    </section><!-- end of contact section -->
+<section class="section" id="blog">
+    <!-- container -->
+    <div class="container text-center">
+
+        <!-- blog-wrapper -->
+        @foreach (var item in Model)
+        {
+            <div class="blog-card">
+                <div class="blog-card-body">
+                    <h5 class="blog-card-title"><latex-js
+                    baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@item.Baslik</latex-js></h5>
+
+                        <p class="blog-card-caption">
+                            <a href="#"><i class="ti-comment"></i> @item.cevapsayisi</a>
+                            <a><i class="bi bi-person-circle"></i>@item.creater</a>
+                            
+                            <a><i class="bi bi-calendar"></i>@item.AtCreated</a>
+                        </p>
+
+                        <a asp-controller="Forum" asp-action="detail" asp-route-id = "@item.slug" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
 <script src="https://cdn.jsdelivr.net/npm/latex.js/dist/latex.js"></script>
 <script>
     function latexkodunukontrolet(){
+        document.getElementById("test").hidden = true;
+        document.getElementById("cikti").innerHTML = "";
         var text = document.getElementById("text").value;
         document.getElementById("cikti").innerHTML = '<latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">' + text + '</latex-js>'
+        document.getElementById("test").hidden = false;
     };
+    
 </script>
+
