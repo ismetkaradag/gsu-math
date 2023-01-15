@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace gsumath.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230113100732_selam")]
+    partial class selam
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
@@ -34,35 +37,6 @@ namespace gsumath.Migrations
                     b.HasKey("BilgiId");
 
                     b.ToTable("Bilgi");
-                });
-
-            modelBuilder.Entity("gsu_math.Models.Blog", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("AtCreated")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Author")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Metin")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("is_active")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("slug")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Blog");
                 });
 
             modelBuilder.Entity("gsu_math.Models.Duyuru", b =>
@@ -195,6 +169,9 @@ namespace gsumath.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("ForumCevapId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("Is_admin")
                         .HasColumnType("INTEGER");
 
@@ -218,7 +195,21 @@ namespace gsumath.Migrations
 
                     b.HasKey("UserId");
 
+                    b.HasIndex("ForumCevapId");
+
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("gsu_math.Models.User", b =>
+                {
+                    b.HasOne("gsu_math.Models.ForumCevap", null)
+                        .WithMany("users")
+                        .HasForeignKey("ForumCevapId");
+                });
+
+            modelBuilder.Entity("gsu_math.Models.ForumCevap", b =>
+                {
+                    b.Navigation("users");
                 });
 #pragma warning restore 612, 618
         }

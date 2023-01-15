@@ -1,0 +1,11 @@
+@model gsu_math.Models.User
+@{
+    Layout = "_Layout2";
+    ViewData["Title"]=@Model.Username+"- Profil";
+}
+<p class="btn" style="margin-top: 90px !important;">
+@Model.AdSoyad
+@Model.AtCreated
+@Model.Email
+@Model.Status
+</p>

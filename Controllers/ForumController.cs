@@ -101,6 +101,7 @@ namespace gsu_math.Controllers
                 if (!s.faydalibulanlar.Contains(User.Identity.Name))
                 {
                     s.faydalibulanlar += User.Identity.Name.ToString() + ",";
+                    s.BegeniSayisi += 1;
                     _context.SaveChanges();
                     return "faydali";
                 }else{
@@ -110,6 +111,7 @@ namespace gsu_math.Controllers
                     var namev = name+",";
                     var l = a.Remove(a.IndexOf(namev),name.Length+1);
                     s.faydalibulanlar = l;
+                    s.BegeniSayisi -= 1;
                     _context.SaveChanges();
                     return "degil";
                 }

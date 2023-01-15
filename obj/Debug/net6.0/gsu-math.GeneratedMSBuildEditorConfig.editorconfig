@@ -19,8 +19,24 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9sb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Account/profil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9wcm9maWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Account/register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9yZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Blog/create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmxvZy9jcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Blog/detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmxvZy9kZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Blog/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmxvZy9pbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Etkinlik/create.cshtml]
@@ -67,8 +83,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Panel/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFuZWwvSW5kZXguY3NodG1s
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Panel/blog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFuZWwvYmxvZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Panel/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFuZWwvaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/Views/Shared/Error.cshtml]

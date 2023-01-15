@@ -1,5 +1,8 @@
 @model gsu_math.ViewModels.ForumDetailViewModel
 
+@{
+    Layout = "_Layout2";
+}
 <script type="module">
     import { LaTeXJSComponent } from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.mjs"
     customElements.define("latex-js", LaTeXJSComponent)
@@ -10,13 +13,13 @@
         width: 100%;
     }
 </style>
-<div class="row">
+<div class="row" style="margin-top: 90px !important;padding:0px !important;">
     <div class="col-md-8 offset-md-2">
         <h3 class="card-title baslik"><latex-js
             baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">@Model.Baslik.Baslik</latex-js>
         </h3>
         <div class="card-body forum-body">
-                        <span>Cevap sayısı: @Model.Baslik.cevapsayisi</span>|&nbsp;&nbsp;
+                        <span><i class="bi bi-pencil"></i> @Model.Baslik.cevapsayisi</span>|&nbsp;&nbsp;
                         <span><i class="bi bi-person-circle"></i>@Model.Baslik.creater</span>|&nbsp;&nbsp;
                         
                         <span><i class="bi bi-calendar"></i>@Model.Baslik.AtCreated</span>
@@ -34,11 +37,11 @@
                 @if (@item.faydalibulanlar.Contains(@User.Identity.Name==null?"randomifade123333":User.Identity.Name))
                 {
                     
-                    <button class="btn bi bi-hand-thumbs-up-fill" id="@item.ForumCevapId" onclick="ffaayyddaa(this.id);"></button>
+                    <button class="btn bi bi-hand-thumbs-up-fill" id="@item.ForumCevapId" onclick="ffaayyddaa(this.id);"></button>@item.BegeniSayisi
                     
                 }else
                 {
-                    <button class="btn bi bi-hand-thumbs-up" id="@item.ForumCevapId" onclick="ffaayyddaa(this.id);"></button>
+                    <button class="btn bi bi-hand-thumbs-up" id="@item.ForumCevapId" onclick="ffaayyddaa(this.id);"></button>@item.BegeniSayisi
                     
                 }
                 @if (User.Identity.Name == @item.username)
@@ -111,3 +114,4 @@
         })
     }
 </script>
+<hr style="margin-top: 105px;">

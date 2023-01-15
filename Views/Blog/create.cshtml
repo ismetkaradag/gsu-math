@@ -1,0 +1,29 @@
+@model List<gsu_math.Models.Blog>
+@{
+    Layout = "_Layout2";
+}
+<script type="module">
+    import { LaTeXJSComponent } from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.mjs"
+    customElements.define("latex-js", LaTeXJSComponent)
+</script>
+<style>
+    latex-js {
+        display: inline-block;
+        width: 100%;
+        --size:90% !important;
+        
+    }
+</style>
+<form style="margin-top: 90px !important;" asp-action="Create" class="contact-form col-md-10 col-lg-8 m-auto">
+    <div class="form-row">
+        <div class="form-group col-sm-6">
+            <input class="form-control" type="text" name="Name" placeholder="blog başlığı">
+        </div>
+        <div class="form-group col-sm-12">
+            <Textarea class="form-control" id="text" name="Metin" placeholder="buraya yazın" rows="3"></Textarea>
+        </div>
+        <div class="form-group col-sm-12 mt-3">
+            <input type="submit" value="Onaya gönder">
+        </div>
+    </div>
+</form>

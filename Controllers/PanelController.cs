@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
-using gsu_math.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace gsu_math.Controllers
 {
     public class PanelController : Controller
-    {   
+    {
         private readonly MyDbContext _context;
         public PanelController( MyDbContext context)
         {
@@ -19,10 +18,13 @@ namespace gsu_math.Controllers
 
         public IActionResult Index()
         {
-            
             return View();
         }
-        
 
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View("Error!");
+        }
     }
 }

@@ -111,5 +111,8 @@ namespace gsu_math.Controllers
 
             return RedirectToAction("index","home");
         }
+        public IActionResult Profil(){
+            return View(_context.User.FirstOrDefault(p => p.Username == User.Identity.Name));
+        }
     }
 }
