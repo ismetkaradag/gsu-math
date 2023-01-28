@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "NETCore.Encrypt": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
             "Slugify.Core": {
               "target": "Package",
               "version": "[3.0.0, )"

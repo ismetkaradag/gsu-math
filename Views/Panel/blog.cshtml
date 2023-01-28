@@ -4,3 +4,66 @@
     Layout="_Layout2";
     ViewData["Title"] = "Blog < Panel ";
 }
+<a asp-controller="panel" asp-action="index" class="btn" style="margin-top: 80px;"> <i class="bi bi-arrow-left"></i></a>
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>Gönderen</th>
+            <th>Blog başlığı</th>
+            <th>Onaylı</th>
+            <th>Sil</th>
+            <th>Düzenleme Talep Et</th>
+            <th>Durum</th>
+        </tr>
+    </thead>
+    <tbody >
+        @foreach (var item in Model)
+        {
+            if (@item.is_active)
+            {
+                <tr class="bg-light">
+                    <th>@item.Author</th>
+                    <th><a asp-controller="blog" asp-action="detail" asp-route-id="@item.slug">@item.Name</a> </th>
+                    <th><input type="checkbox" onchange="is_active_toggle_blog(this.id);" id="@item.Id" checked></th>
+                    <th><a asp-controller="blog" asp-action="delete" asp-route-id = "@item.Id">Delete</a></th>
+                    <th><a asp-controller="blog" asp-action="duzenleme_talebi" asp-route-id = "@item.Id">Düzenleme</a></th>
+                    <th>Yayında</th>
+                </tr>          
+            }else{
+                @if(@item.in_editing == "Düzenleme istendi"){
+                    <tr class="bg-warning">
+                        <th>@item.Author</th>
+                        <th><a asp-controller="blog" asp-action="detail" asp-route-id="@item.slug">@item.Name</a> </th>
+                        <th><input type="checkbox" onchange="is_active_toggle_blog(this.id);" id="@item.Id" ></th>
+                        <th><a asp-controller="blog" asp-action="delete" asp-route-id = "@item.Id">Delete</a></th>
+                        <th><a asp-controller="blog" asp-action="duzenleme_talebi" asp-route-id = "@item.Id">Düzenleme</a></th>
+                        <th>Düzenleme Talep Edildi</th>
+                    </tr>
+                }else{
+
+                    @if(@item.in_editing == "Düzenlemeden döndü"){
+                        <tr class="bg-success">
+                            <th>@item.Author</th>
+                            <th><a asp-controller="blog" asp-action="detail" asp-route-id="@item.slug">@item.Name</a> </th>
+                            <th><input type="checkbox" onchange="is_active_toggle_blog(this.id);" id="@item.Id"></th>
+                            <th><a asp-controller="blog" asp-action="delete" asp-route-id = "@item.Id">Delete</a></th>
+                            <th><a asp-controller="blog" asp-action="duzenleme_talebi" asp-route-id = "@item.Id">Düzenleme</a></th>
+                            <th>Düzenlemeden Döndü</th>
+                        </tr>
+                    }else
+                    {
+                        <tr class="bg-success">
+                            <th>@item.Author</th>
+                            <th><a asp-controller="blog" asp-action="detail" asp-route-id="@item.slug">@item.Name</a> </th>
+                            <th><input type="checkbox" onchange="is_active_toggle_blog(this.id);" id="@item.Id" ></th>
+                            <th><a asp-controller="blog" asp-action="delete" asp-route-id = "@item.Id">Delete</a></th>
+                            <th><a asp-controller="blog" asp-action="duzenleme_talebi" asp-route-id = "@item.Id">Düzenleme</a></th>
+                            <th>İncelenmeli</th>
+                        </tr>
+                    }
+                }
+            }
+         
+        }
+    </tbody>
+</table>

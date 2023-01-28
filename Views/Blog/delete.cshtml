@@ -1,0 +1,15 @@
+@{
+    Layout = "_Layout2";
+}
+@model gsu_math.Models.Blog
+<div class="row" style="margin-top: 90px;">
+    <div class="col-md-4 offset-md-4">
+        <form asp-action="DeleteConfirme" asp-route-id="@Model.Id">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <p>@Model.Name başlıklı, @Model.Author tarafından yaratılan bloğu silmek istediğinize emin misiniz?</p>
+            </div>
+            <input type="submit" value="Sil">
+        </form>
+    </div>
+</div>

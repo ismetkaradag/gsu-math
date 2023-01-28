@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace gsumath.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20221228194530_.")]
-    partial class _
+    [Migration("20230119174616_hjhjbjhbjh2asdasd")]
+    partial class hjhjbjhbjh2asdasd
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +39,41 @@ namespace gsumath.Migrations
                     b.ToTable("Bilgi");
                 });
 
+            modelBuilder.Entity("gsu_math.Models.Blog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("AtCreated")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Author")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Metin")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("duzenleme_talebi_active")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("duzenleme_talebi_returned")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("is_active")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("slug")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Blog");
+                });
+
             modelBuilder.Entity("gsu_math.Models.Duyuru", b =>
                 {
                     b.Property<int>("DuyuruId")
@@ -59,6 +94,35 @@ namespace gsumath.Migrations
                     b.ToTable("Duyuru");
                 });
 
+            modelBuilder.Entity("gsu_math.Models.Etkinlik", b =>
+                {
+                    b.Property<int>("EtkinlikId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Baslik")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Foto")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Metin")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("atCreated")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("endDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("startDate")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("EtkinlikId");
+
+                    b.ToTable("Etkinlik");
+                });
+
             modelBuilder.Entity("gsu_math.Models.ForumBaslik", b =>
                 {
                     b.Property<int>("ForumBaslikId")
@@ -73,6 +137,9 @@ namespace gsumath.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("begenisayisi")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("cevapsayisi")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("creater")
@@ -102,6 +169,9 @@ namespace gsumath.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("at_created")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("faydalibulanlar")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("username")
@@ -148,6 +218,12 @@ namespace gsumath.Migrations
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("is_mail_validated")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("is_validate")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("UserId");
 

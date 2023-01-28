@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace gsumath.Migrations
 {
     /// <inheritdoc />
-    public partial class asdad : Migration
+    public partial class hjhjbjhbjh : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -27,6 +27,26 @@ namespace gsumath.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Blog",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Author = table.Column<string>(type: "TEXT", nullable: true),
+                    AtCreated = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Metin = table.Column<string>(type: "TEXT", nullable: true),
+                    isactive = table.Column<bool>(name: "is_active", type: "INTEGER", nullable: false),
+                    slug = table.Column<string>(type: "TEXT", nullable: true),
+                    duzenlemetalebiactive = table.Column<bool>(name: "duzenleme_talebi_active", type: "INTEGER", nullable: false),
+                    duzenlemetalebireturned = table.Column<bool>(name: "duzenleme_talebi_returned", type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Blog", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Duyuru",
                 columns: table => new
                 {
@@ -42,15 +62,35 @@ namespace gsumath.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Etkinlik",
+                columns: table => new
+                {
+                    EtkinlikId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Baslik = table.Column<string>(type: "TEXT", nullable: true),
+                    Metin = table.Column<string>(type: "TEXT", nullable: true),
+                    Foto = table.Column<string>(type: "TEXT", nullable: true),
+                    atCreated = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    startDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    endDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Etkinlik", x => x.EtkinlikId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ForumBaslik",
                 columns: table => new
                 {
                     ForumBaslikId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Baslik = table.Column<string>(type: "TEXT", nullable: false),
-                    AtCreated = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    AtCreated = table.Column<DateTime>(type: "TEXT", nullable: false),
                     slug = table.Column<string>(type: "TEXT", nullable: true),
-                    creater = table.Column<string>(type: "TEXT", nullable: true)
+                    creater = table.Column<string>(type: "TEXT", nullable: true),
+                    begenisayisi = table.Column<int>(type: "INTEGER", nullable: false),
+                    cevapsayisi = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,10 +103,12 @@ namespace gsumath.Migrations
                 {
                     ForumCevapId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    username = table.Column<string>(type: "TEXT", nullable: true),
                     ForumBaslikId = table.Column<int>(type: "INTEGER", nullable: false),
                     Metin = table.Column<string>(type: "TEXT", nullable: true),
-                    BegeniSayisi = table.Column<string>(type: "TEXT", nullable: true)
+                    BegeniSayisi = table.Column<int>(type: "INTEGER", nullable: false),
+                    atcreated = table.Column<DateTime>(name: "at_created", type: "TEXT", nullable: false),
+                    faydalibulanlar = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -86,7 +128,9 @@ namespace gsumath.Migrations
                     AtCreated = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     Status = table.Column<string>(type: "TEXT", nullable: true),
-                    Isadmin = table.Column<bool>(name: "Is_admin", type: "INTEGER", nullable: false)
+                    Isadmin = table.Column<bool>(name: "Is_admin", type: "INTEGER", nullable: false),
+                    isvalidate = table.Column<bool>(name: "is_validate", type: "INTEGER", nullable: false),
+                    ismailvalidated = table.Column<bool>(name: "is_mail_validated", type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -101,7 +145,13 @@ namespace gsumath.Migrations
                 name: "Bilgi");
 
             migrationBuilder.DropTable(
+                name: "Blog");
+
+            migrationBuilder.DropTable(
                 name: "Duyuru");
+
+            migrationBuilder.DropTable(
+                name: "Etkinlik");
 
             migrationBuilder.DropTable(
                 name: "ForumBaslik");

@@ -20,6 +20,8 @@ namespace gsu_math.Models
         [DefaultValue(false)]
         public bool is_active { get; set; }
         public string slug { get; set; }
+        public string in_editing {get; set;}
+        public string duzenlememetni { get; set; }
 
     }
 }

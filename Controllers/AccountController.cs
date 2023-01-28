@@ -4,15 +4,18 @@ using gsu_math.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using NETCore.Encrypt.Extensions;
 
 namespace gsu_math.Controllers
 {
     public class AccountController : Controller
     {
         private readonly MyDbContext _context;
-        public AccountController( MyDbContext context)
+        private readonly IConfiguration _configuration;
+        public AccountController(MyDbContext context, IConfiguration configuration)
         {
-            _context = context;    
+            _context = context;
+            _configuration = configuration;
         }
         public IActionResult Register()
         {
@@ -30,29 +33,27 @@ namespace gsu_math.Controllers
             {
                 return View();
             }else{
-                List<User> a = _context.User.Where(p => p.Username == user.Username).ToList();
-                if(a.Count>0)
+                var a = _context.User.FirstOrDefault(p => p.Username == user.Username);
+                if(a != null)
                 {
                     ModelState.AddModelError(nameof(user.Username),"Bu kullanıcı adı daha önce alınmış.");
                     return View(user);
                 }else{
-                    List<User> b = _context.User.Where(p => p.Email == user.Email).ToList();
-                    if(a.Count>0)
+                    var b = _context.User.FirstOrDefault(p => p.Email == user.Email);
+                    if(a != null)
                     {
                         ModelState.AddModelError(nameof(user.Email),"Bu mail adresi zaten kullanılıyor.");
                         return View(user);
                     }else{
-                        if (user.Password != user.ConfirmPwd)
-                        {
-                            ModelState.AddModelError(nameof(user.Password),"Şifreler eşleşmiyor.");
-                            return View(user);
-                        }else{
-                            user.AtCreated = DateTime.Now;
-                            user.Status = "Ogrenci";
-                            _context.Add(user);
-                            _context.SaveChanges();
-                            return RedirectToAction("Login","Account");
-                        }
+                        string md5Salt = _configuration.GetValue<string>("AppSettings:MD5Salt");
+                        string saltedPassword = user.Password + md5Salt;
+                        string hashedPassword = saltedPassword.MD5();
+                        user.Password = hashedPassword;
+                        user.AtCreated = DateTime.Now;
+                        user.Status = "Ogrenci";
+                        _context.Add(user);
+                        _context.SaveChanges();
+                        return RedirectToAction("Login","Account");
                     }
                 }
             }
@@ -75,7 +76,10 @@ namespace gsu_math.Controllers
             }
             if (ModelState.IsValid)
             {
-                var user = _context.User.FirstOrDefault(p=>p.Username == data.Username && p.Password == data.Password);
+                string md5Salt = _configuration.GetValue<string>("AppSettings:MD5Salt");
+                string saltedPassword = data.Password + md5Salt;
+                string hashedPassword = saltedPassword.MD5();
+                var user = _context.User.FirstOrDefault(p=>p.Username == data.Username && p.Password == hashedPassword);
                 if (user != null)
                 {
                     var claims = new List<Claim>
@@ -95,11 +99,13 @@ namespace gsu_math.Controllers
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                         new ClaimsPrincipal(claimsIdentity),
                         authproperties);
+                    return RedirectToAction("index","home");
 
                 }
+                ModelState.AddModelError(nameof(user.Password),"Şifre veya parola hatalı.");
             }
 
-            return RedirectToAction("index","home");
+            return View(data);
         }
         public async Task<IActionResult> Logout(string returnUrl = null)
         {
@@ -113,6 +119,41 @@ namespace gsu_math.Controllers
         }
         public IActionResult Profil(){
             return View(_context.User.FirstOrDefault(p => p.Username == User.Identity.Name));
+        }
+        [HttpPost]
+        public IActionResult UpdateProfil(IFormCollection form){
+            var user = _context.User.FirstOrDefault(p => p.Username == User.Identity.Name);
+            user.AdSoyad = form["AdSoyad"];
+            user.Email = form["Email"];
+            
+            _context.SaveChanges();
+            return RedirectToAction("profil");
+        }
+        public IActionResult Settings(string id)
+        {
+            var a = _context.User.FirstOrDefault(p => p.Username == id);
+            if (a != null)
+            {
+                return View(a);
+            }else
+            {
+                return View("Error");
+            }
+        }
+        [HttpPost]
+        public IActionResult UpdateUser(string id,IFormCollection collection)
+        {
+            var user = _context.User.FirstOrDefault(p => p.Username == id);
+            if (user != null)
+            {
+                user.Email = collection["Email"];
+                user.Is_admin = collection["Is_admin"]=="on"?true:false;
+                user.Status = collection["Statu"];
+                _context.User.Update(user);
+                _context.SaveChanges();
+                return RedirectToAction("Settings","Account",new{id = id});
+            }
+            return RedirectToAction("Settings");
         }
     }
 }

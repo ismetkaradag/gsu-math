@@ -28,7 +28,7 @@
             <a class="logo" asp-controller="Home" asp-action="index">gsü math</a>
             <ul class="nav">
                 <li class="item">
-                    <a class="link" asp-controller="Home" asp-action="index">Home</a>
+                    <a class="link" asp-controller="Home" asp-action="index">Anasayfa</a>
                 </li>
                 <li class="item">
                     <a class="link" asp-controller="Forum" asp-action="index">Forum</a>
@@ -36,11 +36,22 @@
                 <li class="item">
                     <a class="link" asp-controller="Blog" asp-action="index">Blog</a>
                 </li>
-                
                 @if (User.Identity.IsAuthenticated)
                     {
+                    <div class="dropdown" style="position: relative; ">
+                        <li class="item">
+                            <a class="link" ><i class="bi bi-bell" style="position: relative;" onclick="toggle_notifs_bar();"><span class="notifications" id="notifs"></span></i></a>
+                        </li>
+                        <div id="notifs-bar" style="background-color:rgb(255,255,255);overflow-y:scroll;" class="position-absolute" hidden>
+
+                        </div>
+                    </div>
+                    
                     <li class="item">
-                        <a class="link" asp-controller="Account" asp-action="profil"><i class="bi bi-person"></i>Profilim</a>
+                        <a class="link" asp-controller="Panel" asp-action="index"><i class="bi bi-kanban"></i></a>
+                    </li>
+                    <li class="item">
+                        <a class="link" asp-controller="Account" asp-action="profil"><i class="bi bi-gear"></i></a>
                     </li>
                     <li class="item ml-md-3">
                         <a asp-controller="Account" asp-action="Logout" class="btn btn-primary">Çıkış yap</a>    
@@ -95,6 +106,45 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        var ss = document.getElementById("notifs");
+        function toggle_notifs_bar(){
+            ss.hidden=true;
+            var s = document.getElementById("notifs-bar");
+            if(s.hidden){
+                s.hidden = false;
+            }else{
+                s.hidden = true;
+            }
+            $.get("/bildirim/is_read",function(data){
+                return true;
+            })
+            
+            
+
+        }
+        
+        var nb = document.getElementById("notifs-bar");
+        $.get( "/bildirim/notifications", function( data ) {
+            s = 0;
+            for (let i = 0; i < data.length; i++)
+            {
+                const a = data[i];
+                if(!a.is_read)
+                {
+                    s+=1
+                    ss.innerHTML=s
+                    nb.innerHTML+="<div class='ntfs-m' style='width:100%;position:relative;padding:10px'>"+"<a href='/"+a.controller+"/"+a.action+"/"+a.otherid+"'>"+a.name+"</a>"+"<div class = 'text-muted' style='position:absolute;top:30px;right:0px;padding:0px;margin:0px;font-size:12px;'><span >"+a.at_created.substring(0,a.at_created.indexOf("T"))+"</span>"+"<span>|"+a.at_created.substring(a.at_created.indexOf("T")+1,a.at_created.indexOf("."))+"</span></div>"+"</div>"+"<hr>"
+
+                }else{
+                    nb.innerHTML+="<div style='width:100%;position:relative;padding:10px'>"+"<a href='/"+a.controller+"/"+a.action+"/"+a.otherid+"'>"+a.name+"</a>"+"<div class = 'text-muted' style='position:absolute;top:30px;right:0px;padding:0px;margin:0px;font-size:12px;'><span >"+a.at_created.substring(0,a.at_created.indexOf("T"))+"</span>"+"<span>|"+a.at_created.substring(a.at_created.indexOf("T")+1,a.at_created.indexOf("."))+"</span></div>"+"</div>"+"<hr>"
+                }
+            }
+            if(s == 0){
+                ss.hidden = true;
+            }
+        });
+    </script>
 </body>
 
 </html>

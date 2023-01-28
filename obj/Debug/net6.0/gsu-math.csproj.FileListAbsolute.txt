@@ -219,3 +219,5 @@
 /Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/bin/Debug/net6.0/Slugify.Core.dll
 /Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/bin/Debug/net6.0/package-lock.json
 /Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/bin/Debug/net6.0/package.json
+/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/bin/Debug/net6.0/NETCore.Encrypt.dll
+/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/bin/Debug/net6.0/Newtonsoft.Json.dll

@@ -84,7 +84,14 @@ namespace gsu_math.Controllers
                         Metin = a.ToString(),
                         faydalibulanlar = ",",
                     };
+                    Bildirim bldrm = new Bildirim{
+                        Name = "Oluşturduğun foruma "+User.Identity.Name+" cevap verdi.",
+                        from = "adminuser",
+                        Yazi=".",
+                        to = baslik.creater,
+                    };
                     _context.Add(cvp);
+                    _context.Add(bldrm);
                     baslik.cevapsayisi += 1;
                     _context.SaveChanges();
                 };
@@ -102,6 +109,19 @@ namespace gsu_math.Controllers
                 {
                     s.faydalibulanlar += User.Identity.Name.ToString() + ",";
                     s.BegeniSayisi += 1;
+                    var aa = _context.ForumBaslik.FirstOrDefault(p=>p.ForumBaslikId == s.ForumBaslikId);
+                    Bildirim bil = new Bildirim{
+                        Name = User.Identity.Name+ " cevabını beğendi.",
+                        Yazi = "",
+                        from = "adminuser",
+                        to = s.username,
+                        controller = "forum",
+                        action = "detail",
+                        otherid = aa.slug,
+
+
+                    };
+                    _context.Add(bil);
                     _context.SaveChanges();
                     return "faydali";
                 }else{

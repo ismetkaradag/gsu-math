@@ -12,7 +12,6 @@ namespace gsu_math.ViewModels
         [Display(Name = "Kullanıcı Adı")]
         public string Username { get; set; }
         [Required(ErrorMessage = "Bu alan zorunlu.")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Şifre")]
         public string Password { get; set; }

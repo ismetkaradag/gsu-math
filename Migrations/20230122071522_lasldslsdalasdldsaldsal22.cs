@@ -5,7 +5,7 @@
 namespace gsumath.Migrations
 {
     /// <inheritdoc />
-    public partial class asdasdasd1232 : Migration
+    public partial class lasldslsdalasdldsaldsal22 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

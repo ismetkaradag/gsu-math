@@ -1,0 +1,61 @@
+@{
+    Layout = "_Layout2";
+    List<string> l = new List<string>();
+    l.Add("Öğretmen");
+    l.Add("Öğrenci");
+    l.Add("Görevli");
+}
+@model gsu_math.Models.User
+
+
+<div class="container" style="margin-top: 80px;">
+    <span class="border rounded p-1 m-2"><a asp-controller="Panel" asp-action="Users"><i class="bi bi-arrow-left"></i> Liste</a></span>
+    <h3 class="text-dark">@Model.Username - @Model.AdSoyad</h3>
+    <hr>
+    <form method="post" asp-controller="Account" asp-action="UpdateUser" asp-route-id="@Model.Username">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Kayıt Tarihi</th>
+                    <td> @Model.AtCreated</td>
+                </tr>
+                <tr>
+                    <th>Mail adresi</th>
+                    <td><input type="email" value=@Model.Email name="Email" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th>Admin</th>
+                    @if (@Model.Is_admin)
+                    {
+                        <td><input type="checkbox" checked name="Is_admin" class="form-check"></td>
+                    }else{
+                        <td><input type="checkbox" name="Is_admin" class="form-check"></td>
+                    }
+                    
+                </tr>
+                <tr>
+                    <th>Statü</th>
+                    <td>
+                        <select name="Statu" id="status" class="form-select">
+                            @foreach (var item in l)
+                            {
+                                if (@Model.Status == item)
+                                {
+                                    <option value="@item" selected>@item</option>
+                                }else
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                                
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr class="text-end"> 
+                    <td colspan="2"><input type="submit" value="Kaydet" class="btn btn-success"></td>
+                </tr>
+            </thead>
+        </table>
+    </form>
+
+</div>

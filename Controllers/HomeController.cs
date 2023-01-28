@@ -15,7 +15,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
 
-        return View();
+        return View(_context.Blog.Where(s => s.is_active == true).OrderByDescending(p=>p.AtCreated).Take(3).ToList());
     }
 
     public IActionResult Privacy()

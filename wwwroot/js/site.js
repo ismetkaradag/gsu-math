@@ -1,4 +1,10 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿
+function is_active_toggle_blog(id){
+    var as = "/panel/toggle_is_active/"+id;
+    $.post(as,function(data,status){
+        if(data == true){
+            document.getElementById(id).parentElement.parentElement.classList.toggle("bg-success")
+            document.getElementById(id).parentElement.parentElement.classList.toggle("bg-light")
+        }
+    })
+}

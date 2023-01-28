@@ -5,14 +5,14 @@
 namespace gsumath.Migrations
 {
     /// <inheritdoc />
-    public partial class asdasdasd123 : Migration
+    public partial class lasldslsdalasdldsaldsal2221qe : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "faydalibulanlar",
-                table: "ForumCevap",
+                name: "duzenlememetni",
+                table: "Blog",
                 type: "TEXT",
                 nullable: true);
         }
@@ -21,8 +21,8 @@ namespace gsumath.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "faydalibulanlar",
-                table: "ForumCevap");
+                name: "duzenlememetni",
+                table: "Blog");
         }
     }
 }

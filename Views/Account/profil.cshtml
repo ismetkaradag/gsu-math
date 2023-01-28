@@ -1,11 +1,50 @@
 @model gsu_math.Models.User
 @{
     Layout = "_Layout2";
-    ViewData["Title"]=@Model.Username+"- Profil";
+    ViewData["Title"] = @Model.Username + " - Profil";
 }
-<p class="btn" style="margin-top: 90px !important;">
-@Model.AdSoyad
-@Model.AtCreated
-@Model.Email
-@Model.Status
-</p>
+<div class="container-fluid">
+    <div style="margin-top: 90px !important;">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <h3 class="text-dark">Ayarlar</h3>
+            </div>
+
+            <hr class="mb-2">
+            <div class="col-md-2">
+                <ul class="nav flex-column color-mor">
+                    <li class="nav-item">
+                        <button onclick="{document.getElementById('bilgi').hidden=false;document.getElementById('sifre').hidden=true;}" class="btn nav-link">Bilgilerini Güncelle</button>
+                    </li>
+                    <hr class="m-0 p-0">
+                    <li class="nav-item">
+                        <button onclick="{document.getElementById('sifre').hidden=false;document.getElementById('bilgi').hidden=true;}" class="btn nav-link">Şifre Güncelle</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10">
+                <form id="bilgi" method="post" asp-action="UpdateProfil">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="mail" class="form-control" name="Email" asp-for="Email">
+                                <div id="emailHelp" class="form-text">Kimseyle paylaşılmayacak.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Ad Soyad</label>
+                                <input type="text" class="form-control" name="AdSoyad" asp-for="AdSoyad">
+                            </div>
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-success">kaydet</button>
+                </form>
+                <button hidden id="sifre" class="btn btn-secondary" onclick="alert('buraya mail func olutşur.')">Mail Gönder</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -571,6 +571,27 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
+      "NETCore.Encrypt/2.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.1/NETCore.Encrypt.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/NETCore.Encrypt.dll": {}
+        }
+      },
+      "Newtonsoft.Json/12.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "Slugify.Core/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -2118,6 +2139,57 @@
         "mono.texttemplating.nuspec"
       ]
     },
+    "NETCore.Encrypt/2.1.1": {
+      "sha512": "qw6XuYTz7xtNSRWNm4BltmWTnUZvfI05mcd7NoheIBXmxICP1MpwiyGB8mrl7TLhi+WwUInuwsl69aV6ToqBOQ==",
+      "type": "package",
+      "path": "netcore.encrypt/2.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/NETCore.Encrypt.dll",
+        "netcore.encrypt.2.1.1.nupkg.sha512",
+        "netcore.encrypt.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/12.0.1": {
+      "sha512": "pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.pdb",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.pdb",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.pdb",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.pdb",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.pdb",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.pdb",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.pdb",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.pdb",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.pdb",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
     "Slugify.Core/3.0.0": {
       "sha512": "lJiN2OUUu/zOErZzuv+rUnR2S7qvXthhuF+xoqiymoTx+YnqtOjzPwp+c9i7zVrKHFqCOSV1PSJeUEE4hiofBw==",
       "type": "package",
@@ -3597,6 +3669,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 7.0.0",
       "Microsoft.EntityFrameworkCore.SQLite >= 7.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.0",
+      "NETCore.Encrypt >= 2.1.1",
       "Slugify.Core >= 3.0.0"
     ]
   },
@@ -3650,6 +3723,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[7.0.0, )"
+          },
+          "NETCore.Encrypt": {
+            "target": "Package",
+            "version": "[2.1.1, )"
           },
           "Slugify.Core": {
             "target": "Package",

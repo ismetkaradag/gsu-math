@@ -1,0 +1,30 @@
+@{
+   Layout = "_Layout2";
+}
+@model List<gsu_math.Models.User>
+
+<div class="row" style="margin-top: 90px;">
+    <div class="col-md-10 offset-md-1">    
+        <span class="border rounded p-1 text-center" style="width: 10%;"><a asp-controller="Panel" asp-action="Index"><i class="bi bi-arrow-left"></i> Panel</a></span>
+    
+        <table class="table mt-2">
+            <thead>
+                <tr>
+                    <th>kullanıcı adı</th>
+                    <th>statü</th>
+                    <th>ayarlar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in @Model)
+                {
+                <tr>
+                    <td>@item.Username</td>
+                    <td>@item.Status</td>
+                    <td><a asp-controller="Account" asp-action="Settings" asp-route-id=@item.Username>@item.Username settings</a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

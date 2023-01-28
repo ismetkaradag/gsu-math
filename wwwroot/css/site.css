@@ -81,3 +81,54 @@ body {
   z-index: 99999;
   color:black;
 }
+.notifications{
+  position: absolute;
+  top: -4px;
+  right: -5px;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  width: 65%;
+  background-color: red;
+  border-radius: 40%;
+  z-index: -1;
+  height: 50%;
+  font-size: x-small;
+}
+#notifs-bar{
+  background-color:rgba(105, 90, 166,0.6);
+  position: absolute;
+  top: 7vh;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2%;
+  width: 30vw;
+  padding: 5%;
+  height: 50vh;
+  
+  animation: wid 0.5s ease-in-out;
+}
+.dropdown *:hover{
+  visibility: initial !important;
+}
+@keyframes wid {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 50vh;
+  }
+}
+.ntfs-m{
+  background-color: rgba(255, 255, 255, 1);
+  animation: clr-bsd 5s ease-in-out;
+}
+@keyframes clr-bsd {
+  from {
+    background-color: rgba(0, 0, 0,0.1);
+  }
+  to {
+    background-color: rgba(255, 255, 255, 1);
+  }
+}
+.color-mor .btn{
+  color: #695aa6;
+}

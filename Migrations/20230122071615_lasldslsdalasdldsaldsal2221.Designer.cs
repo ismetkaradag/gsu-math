@@ -10,14 +10,52 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace gsumath.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230111121522_asdadsagg")]
-    partial class asdadsagg
+    [Migration("20230122071615_lasldslsdalasdldsaldsal2221")]
+    partial class lasldslsdalasdldsaldsal2221
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
+
+            modelBuilder.Entity("gsu_math.Models.Bildirim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("At_created")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Yazi")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("action")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("controller")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("from")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("is_read")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("otherid")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("to")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bildirim");
+                });
 
             modelBuilder.Entity("gsu_math.Models.Bilgi", b =>
                 {
@@ -37,6 +75,41 @@ namespace gsumath.Migrations
                     b.HasKey("BilgiId");
 
                     b.ToTable("Bilgi");
+                });
+
+            modelBuilder.Entity("gsu_math.Models.Blog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("AtCreated")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Author")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Metin")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("duzenleme_talebi_active")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("duzenleme_talebi_returned")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("is_active")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("slug")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Blog");
                 });
 
             modelBuilder.Entity("gsu_math.Models.Duyuru", b =>

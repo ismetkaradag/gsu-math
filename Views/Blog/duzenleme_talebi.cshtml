@@ -1,0 +1,16 @@
+@{
+    Layout = "_Layout2";
+}
+@model gsu_math.Models.Blog
+<div class="row" style="margin-top: 90px;">
+    <form  asp-action="duzenleme_talebi" method="post" asp-controller="Blog" asp-route-id="@Model.slug" class="contact-form col-md-10 col-lg-8 m-auto" >
+        <div class="form-row">
+            <div class="form-group col-sm-12">
+                <Textarea class="form-control" id="text" name="Metin" placeholder="Geri dönüş verin" rows="3"></Textarea>
+            </div>
+            <div class="form-group col-sm-2 offset-md-5 mt-3">
+                <input type="submit">
+            </div>
+        </div>
+    </form>
+</div>

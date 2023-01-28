@@ -22,9 +22,10 @@ namespace gsu_math.Models
         [Display(Name = "Şifre")]
         public string Password { get; set; }
         [Required(ErrorMessage = "Bu alan zorunlu.")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Şifreniz 6-100 karakter aralığında olmalıdır.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Şifre Tekrar")]
+        [Compare(nameof(Password))]
         public string ConfirmPwd { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime AtCreated { get; set; }

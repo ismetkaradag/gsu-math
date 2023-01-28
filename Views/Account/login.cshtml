@@ -1,10 +1,13 @@
 @model gsu_math.ViewModels.LoginViewModel
+@{
+    Layout = "_Layout2";
+}
 <style>
     form div{
         margin-top: 4%;
     }
 </style>
-<div class="row">
+<div class="row" style="margin-top: 80px;">
     <div class="col-md-4 offset-md-4">
         <div>
             <h3>Login to ...</h3>
@@ -22,7 +25,10 @@
                 <input asp-for="Password" class="form-control">
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <input type="submit" class="btn btn-primary mt-2">
+            <div class="form-group d-grid">
+                <input type="submit" class="btn btn-primary mt-2 d-flex text-center rounded">
+            </div>
+            
 
         </form>
     </div>
