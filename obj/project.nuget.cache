@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sRCGzSmKqQc3fhnlTwAw6aSIIwLLeO8IDQ3iAvZGKmDVDjOHHzOYGJJ1GkXpp3A9erBRr1Axl3GqEa4d5LjHXw==",
+  "dgSpecHash": "Xs6VG1l2XVEoXny2AO4qvfBk/jT8gRwQv7EM/R3C2i/jd/QNL9pLubE+gSg6GxG2g3iCA7s0ewkuciajQgkLXg==",
   "success": true,
   "projectFilePath": "/Users/ismetkaradag/Desktop/dotnet/gsu-kulup/gsu-math/gsu-math.csproj",
   "expectedPackageFiles": [
@@ -68,7 +68,6 @@
     "/Users/ismetkaradag/.nuget/packages/system.resources.resourcemanager/4.3.0/system.resources.resourcemanager.4.3.0.nupkg.sha512",
     "/Users/ismetkaradag/.nuget/packages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
     "/Users/ismetkaradag/.nuget/packages/system.runtime.caching/5.0.0/system.runtime.caching.5.0.0.nupkg.sha512",
-    "/Users/ismetkaradag/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/ismetkaradag/.nuget/packages/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg.sha512",
     "/Users/ismetkaradag/.nuget/packages/system.security.cryptography.cng/5.0.0/system.security.cryptography.cng.5.0.0.nupkg.sha512",
     "/Users/ismetkaradag/.nuget/packages/system.security.cryptography.protecteddata/5.0.0/system.security.cryptography.protecteddata.5.0.0.nupkg.sha512",

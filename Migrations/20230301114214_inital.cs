@@ -6,24 +6,30 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace gsumath.Migrations
 {
     /// <inheritdoc />
-    public partial class hjhjbjhbjh : Migration
+    public partial class inital : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Bilgi",
+                name: "Bildirim",
                 columns: table => new
                 {
-                    BilgiId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Tür = table.Column<string>(type: "TEXT", nullable: true),
-                    Başlık = table.Column<string>(type: "TEXT", nullable: true),
-                    Metin = table.Column<string>(type: "TEXT", nullable: true)
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Yazi = table.Column<string>(type: "TEXT", nullable: true),
+                    from = table.Column<string>(type: "TEXT", nullable: true),
+                    isread = table.Column<bool>(name: "is_read", type: "INTEGER", nullable: false),
+                    to = table.Column<string>(type: "TEXT", nullable: true),
+                    controller = table.Column<string>(type: "TEXT", nullable: true),
+                    action = table.Column<string>(type: "TEXT", nullable: true),
+                    otherid = table.Column<string>(type: "TEXT", nullable: true),
+                    Atcreated = table.Column<DateTime>(name: "At_created", type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Bilgi", x => x.BilgiId);
+                    table.PrimaryKey("PK_Bildirim", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -38,8 +44,8 @@ namespace gsumath.Migrations
                     Metin = table.Column<string>(type: "TEXT", nullable: true),
                     isactive = table.Column<bool>(name: "is_active", type: "INTEGER", nullable: false),
                     slug = table.Column<string>(type: "TEXT", nullable: true),
-                    duzenlemetalebiactive = table.Column<bool>(name: "duzenleme_talebi_active", type: "INTEGER", nullable: false),
-                    duzenlemetalebireturned = table.Column<bool>(name: "duzenleme_talebi_returned", type: "INTEGER", nullable: false)
+                    inediting = table.Column<string>(name: "in_editing", type: "TEXT", nullable: true),
+                    duzenlememetni = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -142,7 +148,7 @@ namespace gsumath.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Bilgi");
+                name: "Bildirim");
 
             migrationBuilder.DropTable(
                 name: "Blog");
