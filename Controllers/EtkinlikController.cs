@@ -17,7 +17,6 @@ public class EtkinlikController : Controller
 
     public IActionResult Index()
     {
-
         return View(_context.Etkinlik.ToList());
     }
 

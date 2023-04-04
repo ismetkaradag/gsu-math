@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -15,11 +16,12 @@ namespace gsu_math.Controllers
         {
             _context = context;    
         }
-
+        [Authorize(Roles="admin")]
         public IActionResult Index()
         {
             return View();
         }
+        [Authorize(Roles="admin")]
         public IActionResult Blog()
         {
             return View(_context.Blog.OrderBy(p => p.is_active).ToList());
@@ -30,6 +32,7 @@ namespace gsu_math.Controllers
             return View("Error!");
         }
         [HttpPost]
+        [Authorize(Roles="admin")]
         public bool toggle_is_active(int id){
             var a = _context.Blog.FirstOrDefault(p => p.Id == id);
             System.Console.WriteLine(a.AtCreated);
@@ -50,7 +53,7 @@ namespace gsu_math.Controllers
             }
             return false;
         }
-        
+        [Authorize(Roles="admin")]
         public IActionResult Users(){
             return View(_context.User.ToList());
         }

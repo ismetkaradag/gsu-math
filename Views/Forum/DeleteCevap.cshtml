@@ -1,6 +1,9 @@
 @model gsu_math.Models.ForumCevap
 
-
+@{
+    Layout = "_Layout2";
+    ViewData["Title"] = "Delete";
+}
 <div class="row">
     <div class="col-md-4 offset-md-4">
         <form asp-action="DeleteCevapConfirme" asp-route-id="@Model.ForumCevapId">

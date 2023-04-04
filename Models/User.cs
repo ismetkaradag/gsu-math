@@ -40,5 +40,6 @@ namespace gsu_math.Models
         public bool is_validate { get; set; }
         [DefaultValue(false)]
         public bool is_mail_validated { get; set; }
+        public string unique_string { get; set; }
     }
 }

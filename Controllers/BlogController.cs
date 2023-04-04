@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using gsu_math.Models;
 using Slugify;
 using System.Net.Mail;
+using Microsoft.AspNetCore.Authorization;
 
 namespace gsu_math.Controllers
 {
@@ -29,11 +30,13 @@ namespace gsu_math.Controllers
         {
             return View(_context.Blog.FirstOrDefault(p => p.slug == id));
         }
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
+        [Authorize]
         public IActionResult Create(Blog blog)
         {
             if (ModelState.IsValid)
@@ -47,10 +50,12 @@ namespace gsu_math.Controllers
             }
             return View("error");
         }
+        [Authorize(Roles="admin")]
         public IActionResult Delete(int id){
             return View(_context.Blog.FirstOrDefault(p => p.Id == id));
         }
         [HttpPost]
+        [Authorize(Roles="admin")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirme(Blog blog){
             if (ModelState.IsValid)
@@ -61,11 +66,13 @@ namespace gsu_math.Controllers
             }
             return RedirectToAction("blog","panel");
         }
+        [Authorize]
         public IActionResult duzenleme_talebi(int id){
             var a = _context.Blog.FirstOrDefault(p => p.Id == id);
             return View(a);
         }
         [HttpPost]
+        [Authorize]
         public IActionResult duzenleme_talebi( IFormCollection coll, string id){
             var metin = coll["Metin"];
             var blog = _context.Blog.FirstOrDefault(p => p.slug == id);
@@ -88,6 +95,7 @@ namespace gsu_math.Controllers
 
             return RedirectToAction("blog","panel");
         }
+        [Authorize]
         public IActionResult returnedBlog( IFormCollection coll, string id){
             var blog = _context.Blog.FirstOrDefault(p => p.slug == id);
             blog.in_editing="Düzenlemeden döndü";

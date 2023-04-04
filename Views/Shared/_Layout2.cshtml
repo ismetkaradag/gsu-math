@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>@ViewData["Title"] - gsu_math</title>
+    <title>@ViewData["Title"] | gsumath</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/gsu_math.styles.css" asp-append-version="true" />
@@ -46,10 +46,13 @@
 
                         </div>
                     </div>
+                    if (User.IsInRole("admin"))
+                    {
+                        <li class="item">
+                            <a class="link" asp-controller="Panel" asp-action="index"><i class="bi bi-kanban"></i></a>
+                        </li>
+                    }
                     
-                    <li class="item">
-                        <a class="link" asp-controller="Panel" asp-action="index"><i class="bi bi-kanban"></i></a>
-                    </li>
                     <li class="item">
                         <a class="link" asp-controller="Account" asp-action="profil"><i class="bi bi-gear"></i></a>
                     </li>

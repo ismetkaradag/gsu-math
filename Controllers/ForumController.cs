@@ -100,7 +100,7 @@ namespace gsu_math.Controllers
             return RedirectToAction("Detail","Forum",new {id});
         }
         [HttpPost]
-        
+        [Authorize]
         public string faydali(int id){
             if (User.Identity.IsAuthenticated)
             {
@@ -138,7 +138,7 @@ namespace gsu_math.Controllers
             }
             return "error";
         }
-        [Authorize]
+        [Authorize(Roles="admin")]
         public IActionResult Delete(int id){
             var silinecek = _context.ForumBaslik.FirstOrDefault(p => p.ForumBaslikId == id);
             if (User.Identity.Name == silinecek.creater)
@@ -151,7 +151,7 @@ namespace gsu_math.Controllers
             
         }
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles="admin")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirme(int id)
         {

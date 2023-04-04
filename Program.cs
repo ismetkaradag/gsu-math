@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<MyDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("MyDbContext")));
+builder.Services.AddDbContext<MyDbContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("DbContext"),ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DbContext"))));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

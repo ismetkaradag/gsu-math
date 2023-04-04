@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -20,6 +21,7 @@ namespace gsu_math.Controllers
         {
             return View();
         }
+        [Authorize]
         public bool is_read(){
             var a = User.Identity.Name;
             if(a.Length>0){
@@ -36,6 +38,7 @@ namespace gsu_math.Controllers
             }
             return true;
         }
+        [Authorize]
         public JsonResult notifications(){
             var a = _context.Bildirim.Where(p => p.to == User.Identity.Name).OrderByDescending(p => p.At_created).ToList();
             if (a.Count()>20)

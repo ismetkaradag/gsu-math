@@ -1,6 +1,7 @@
 @model gsu_math.ViewModels.LoginViewModel
 @{
     Layout = "_Layout2";
+    ViewData["Title"] = "Giriş Yap";
 }
 <style>
     form div{
@@ -10,7 +11,7 @@
 <div class="row" style="margin-top: 80px;">
     <div class="col-md-4 offset-md-4">
         <div>
-            <h3>Login to ...</h3>
+            <h3>giriş yap</h3>
         </div>
         <form asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -26,9 +27,13 @@
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group d-grid">
-                <input type="submit" class="btn btn-primary mt-2 d-flex text-center rounded">
+                <input type="submit" value="giriş yap" class="btn btn-primary mt-2 d-flex text-center rounded">
             </div>
-            
+            <div class="mt-2" style="font-size: 12px;">
+                <a asp-controller="Account" asp-action="RefreshMyPass">Şifremi unuttum?</a>
+
+
+            </div>
 
         </form>
     </div>

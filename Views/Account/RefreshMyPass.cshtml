@@ -1,0 +1,31 @@
+@model gsu_math.ViewModels.GetMailViewModel
+@{
+    Layout = "_Layout2";
+    ViewData["Title"] = "Parolanı sıfırlayalım";
+}
+<style>
+    form div{
+        margin-top: 4%;
+    }
+</style>
+<div class="row" style="margin-top: 80px;">
+    <div class="col-md-4 offset-md-4">
+        <div>
+            <h3>parola sıfırlama isteği</h3>
+        </div>
+        <form asp-action="RefreshMyPass">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="mailadres" class="control-label"></label>
+                <input asp-for="mailadres" class="form-control">
+                <span asp-validation-for="mailadres" class="text-danger"></span>
+            </div>
+            
+           
+            <div class="form-group d-grid">
+                <input type="submit" value="mail gönder" class="btn btn-primary mt-2 d-flex text-center rounded">
+            </div>
+
+        </form>
+    </div>
+</div>

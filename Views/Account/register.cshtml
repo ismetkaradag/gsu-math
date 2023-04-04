@@ -1,6 +1,7 @@
 @model gsu_math.Models.User
 @{
     Layout = "_Layout2";
+    ViewData["Title"] = "Üye Ol";
 }
 <style>
     form div{
@@ -11,7 +12,7 @@
 <div class="row" style="margin-top:80px;">
     <div class="col-md-4 offset-md-4">
         <div>
-            <h3>Sign in to ...</h3>
+            <h3>üye ol</h3>
         </div>
         <form asp-action="Register">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -41,8 +42,9 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group d-grid" style="margin-bottom: 90px;">
-                <input type="submit" class="btn btn-primary mt-2 d-flex text-center rounded">
+                <input type="submit" value="üye ol" class="btn btn-primary mt-2 d-flex text-center rounded">
             </div>
+            
         </form>
     </div>
 </div>
