@@ -457,3 +457,5 @@ wwwroot/assets/
 wwwroot/css/
 wwwroot/js/
 wwwroot/lib/
+
+Migrations/
